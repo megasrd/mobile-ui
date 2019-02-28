@@ -67,46 +67,18 @@
 
         <span class="mx-5 px-5 block clearfix">
           <h4 class="float-left mr-5 uppercase"> Friends</h4> 
-          <h4 class="float-left text-grey"> 3 Active </h4>
+          <h4 class="float-left text-grey"> {{ activeCount }} Active </h4>
           <a class="float-right text-blue-light"> See All > </a>
         </span>
 
-        <span class="flex overflow-y-scroll"> 
-          <div class="mx-5 mt-12 mb-12 px-5">
+        <span v-for="friend in friend_list"> 
+          <div v-if="friend.active" class="inline-block mx-5 mt-12 mb-12 px-5">
               <div class="text-center">
-                <img class="friends-image rounded-full shadow-lg bg-black" src="./images/id-image.jpeg">
-                <h3 class="block text-black mt-3 text-3xl"> Your Name </h3>
+                <span class="absolute p-6 rounded-full bg-green-light"></span>
+                <img class="friends-image rounded-full shadow-lg bg-black" v-bind:src="friend.pr_pic">
+                <h3 class="block text-black mt-3 text-3xl"> {{ friend.full_name }} </h3>
               </div>
           </div>
-
-          <div class="mx-5 mt-12 mb-12 px-5">
-              <div class="text-center">
-                <img class="friends-image rounded-full shadow-lg bg-black" src="./images/id-image.jpeg">
-                <h3 class="block text-black mt-3 text-3xl"> Your Name </h3>
-              </div>
-          </div>
-
-          <div class="mx-5 mt-12 mb-12 px-5">
-              <div class="text-center">
-                <img class="friends-image rounded-full shadow-lg bg-black" src="./images/id-image.jpeg">
-                <h3 class="block text-black mt-3 text-3xl"> Your Name </h3>
-              </div>
-          </div>
-
-          <div class="mx-5 mt-12 mb-12 px-5">
-              <div class="text-center">
-                <img class="friends-image rounded-full shadow-lg bg-black" src="./images/id-image.jpeg">
-                <h3 class="block text-black mt-3 text-3xl"> Your Name </h3>
-              </div>
-          </div>
-
-          <div class="mx-5 mt-12 mb-12 px-5">
-              <div class="text-center">
-                <img class="friends-image rounded-full shadow-lg bg-black" src="./images/id-image.jpeg">
-                <h3 class="block text-black mt-3 text-3xl"> Your Name </h3>
-              </div>
-          </div>
-
         </span> 
   
       </div>  
