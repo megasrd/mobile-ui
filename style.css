@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
+.container {
+  display: block;
+}
+
+.city-image {
+  background-image: url(./images/background-1.jpg);
+  background-size: cover;
+}
+
+.source-sans {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+.id-image {
+  object-fit: cover;
+  max-width: 75%;
+  height: 300px;
+}
+
+.friends-image {
+  object-fit: cover;
+  max-width: 190px;
+  height: 190px;
+}
+
+.icons {
+  width: 80px;
+}
+
+/*# sourceMappingURL=style.css.map */
