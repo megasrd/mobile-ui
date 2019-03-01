@@ -8,10 +8,6 @@ $(document).ready(function() {
 
 //Vue
 
-Vue.component('modal', {
-  template: '#modal-template'
-})
-
 const app = new Vue({
     el: '#app',
     data: {
@@ -25,7 +21,8 @@ const app = new Vue({
             shots: 10,
             friends: 0
         },
-        showModal: false,
+        place_showModal: false,
+        friends_showModal: false,
         settings: false,
         friend_list: {
           0 : {
@@ -53,6 +50,7 @@ const app = new Vue({
             last_seen_unix: 1551269100
           }
         },
+
         fav_places : {
           0 : {
             name: 'Cape Town',
@@ -84,6 +82,7 @@ const app = new Vue({
             image: './images/shots/shot-3.jpeg'
           }
         }
+
     },
 
     methods: {
@@ -177,3 +176,4 @@ const app = new Vue({
       }
   }
 });
+
