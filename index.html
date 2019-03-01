@@ -79,7 +79,7 @@
         <span class="mx-5 px-5 block clearfix">
           <h4 class="float-left mr-5 uppercase"> Friends</h4> 
           <h4 class="float-left text-grey"> {{ activeCount }} Active </h4>
-          <a class="float-right text-blue-light"> See All > </a>
+          <a class="float-right text-blue-light"> Friends List > </a>
         </span>
 
         <span class="overflow-y-scroll flex"> 
@@ -104,7 +104,7 @@
       <div class="container mt-16 mb-10 source-sans text-4xl">
         <span class="mx-5 px-5 block clearfix">
             <h4 class="float-left mr-5 uppercase"> Favourite Places </h4> 
-            <a class="float-right text-blue-light"> See All > </a>
+            <button id="show-modal" @click="showModal = true" class="float-right text-blue-light"> Add More + </button>
         </span>
       </div>
 
@@ -124,24 +124,60 @@
           <span class="mx-5 px-5 block clearfix">
               <h4 class="float-left mr-5 uppercase"> Shots </h4> 
               <h4 class="float-left text-grey"> 3 taken this week </h4>
-              <a class="float-right text-blue-light"> See All > </a>
           </span>
       </div>
 
-      <div class="shots-gallery px-20 py-10 mb-10 flex flex-wrap text-center">
-          <a class="inline-block m-3 w-2/5" href="./images/background-1.jpg">
-            <img src="./images/background-1.jpg" />
-          </a>
-          <a class="inline-block m-3 w-2/5" href="./images/background-1.jpg">
-            <img src="./images/background-1.jpg" />
-          </a>
-          <a class="inline-block m-3 w-2/5" href="./images/background-1.jpg">
-            <img src="./images/background-1.jpg" />
-          </a>
-          <a class="inline-block m-3 w-2/5" href="./images/background-1.jpg">
-            <img src="./images/background-1.jpg" />
-          </a>
+      <div class="shots-gallery px-10 py-10 mb-10 flex flex-wrap text-center">
+          <a v-for="shot in photos" class="inline-block m-3 w-2/5" v-bind:src="shot.image">
+            <img v-bind:src="shot.image"/>
+          </a>  
       </div>
+
+  <!-- Modals -->
+
+  <modal v-if="showModal" @close="showModal = false">
+      <!--
+        you can use custom content here to overwrite
+        default content
+      -->
+      <h3 slot="header">Add Favourite Places</h3>
+    </modal>
+
+  <!-- Modal Template -->
+
+      <script type="text/x-template" id="modal-template">
+        <transition name="modal">
+          <div class="modal-mask">
+            <div class="modal-wrapper">
+              <div class="modal-container w-4/5 p-16 h bg-white mx-auto">
+      
+                <div class="modal-header">
+                  <slot name="header">
+                    default header
+                  </slot>
+                </div>
+      
+                <div class="modal-body">
+                  <slot name="body">
+                      <span class="block">
+                          <p class="py-6 font-bold"> City: </p>
+                          <input class="settings-input py-6 mb-8" type="text" placeholder="City">
+                          <p class="py-6 font-bold"> Country:  </p>
+                          <input class="settings-input py-6 mb-8" type="text" placeholder="Country">
+                      </span>
+                  </slot>
+                </div>
+      
+                <div class="modal-footer">
+                  <slot name="footer">
+                    <button class="modal-default-button bg-teal text-white py-6 px-10" @click="$emit('close')"> ADD </button>
+                  </slot>
+                </div>
+              </div>
+            </div>
+          </div>
+        </transition>
+      </script>
   </div>
 </body>
 <script
