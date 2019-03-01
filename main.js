@@ -32,7 +32,7 @@ const app = new Vue({
           1 : {
             pr_pic: './images/robin.jpeg',
             full_name: 'Robin April',
-            active: false,
+            active: true,
             last_seen_unix: 1551269100
           },
           2 : {
