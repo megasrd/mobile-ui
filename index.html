@@ -79,7 +79,7 @@
         <span class="mx-5 px-5 block clearfix">
           <h4 class="float-left mr-5 uppercase"> Friends</h4> 
           <h4 class="float-left text-grey"> {{ activeCount }} Active </h4>
-          <button class="float-right text-blue-light"> Friends List > </button>
+          <button class="float-right text-blue-light" id="friends_showModal" @click="friends_showModal = true">Friends List ></button>
         </span>
 
         <span class="overflow-y-scroll flex"> 
@@ -132,6 +132,16 @@
             <img v-bind:src="shot.image"/>
           </a>  
       </div>
+
+        
+        <!-- use the modal component, pass in the prop -->
+        <modal v-if="friends_showModal" @close="friends_showModal = false">
+          <!--
+            you can use custom content here to overwrite
+            default content
+          -->
+          <h3 slot="header">Friends List</h3>
+        </modal>
   </div>
 </body>
 <script
@@ -141,4 +151,5 @@
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.7/dist/vue.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.12/js/lightgallery.min.js"></script>
 <script src="main.js"></script>
+<script src="./components/js/vue-modals.js"></script>
 </html>

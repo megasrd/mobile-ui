@@ -21,7 +21,6 @@ const app = new Vue({
             shots: 10,
             friends: 0
         },
-        place_showModal: false,
         friends_showModal: false,
         settings: false,
         friend_list: {
