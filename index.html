@@ -86,13 +86,13 @@
           <span v-for="friend in friend_list"> 
             <div v-if="friend.active" class="inline-block mx-5 mt-12 mb-12 px-5">
                 <div class="text-center">
-                  <img class="friends-image rounded-full border-active shadow-lg bg-black" v-bind:src="friend.pr_pic">
+                  <img class="friends-image rounded-full border-active shadow-lg" v-bind:src="friend.pr_pic">
                   <h3 class="block text-black mt-3 text-3xl"> {{ friend.full_name }} </h3>
                 </div>
             </div>
             <div v-else class="inline-block mx-5 mt-12 mb-12 px-5"> 
                 <div class="text-center">
-                    <img class="friends-image rounded-full shadow-lg bg-black" v-bind:src="friend.pr_pic">
+                    <img class="friends-image rounded-full shadow-lg" v-bind:src="friend.pr_pic">
                     <h3 class="block text-black mt-3 text-3xl"> {{ friend.full_name }} </h3>
                   </div>
             </div>

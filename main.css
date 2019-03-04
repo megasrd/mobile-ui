@@ -51,6 +51,10 @@
   -ms-transform: scale(1.1);
   transform: scale(1.1); }
 
+.custom_input {
+  border-bottom: 1px solid black;
+  width: 66%; }
+
 .settings-input {
   width: 100%;
   border-bottom: 1px solid black; }

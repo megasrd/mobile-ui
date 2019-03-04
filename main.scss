@@ -3,6 +3,11 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
 @import "helpers/modal";
 
+.custom_input {
+    border-bottom: 1px solid black;
+    width: 66%;
+}
+
 .settings-input {
     width: 100%;
     border-bottom: 1px solid black;

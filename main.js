@@ -21,6 +21,7 @@ const app = new Vue({
             shots: 10,
             friends: 0
         },
+        add_friends: false,
         friends_showModal: false,
         settings: false,
         friend_list: {
@@ -49,7 +50,12 @@ const app = new Vue({
             last_seen_unix: 1551269100
           }
         },
-
+        add_friend : {
+          pr_pic: '',
+          full_name: '',
+          active: false,
+          last_seen_unix: null
+        },
         fav_places : {
           0 : {
             name: 'Cape Town',
@@ -86,13 +92,13 @@ const app = new Vue({
 
     methods: {
 
-      addFriend : function(friend_name, friend_ppic) {
+      addFriend : function(friend_name) {
 
         let length = Object.keys(this.friend_list).length;
 
         Vue.set(this.friend_list, length, {
 
-          pr_pic: friend_ppic,
+          pr_pic: './images/new_user.png',
 
           full_name: friend_name,
 
@@ -101,6 +107,10 @@ const app = new Vue({
           last_seen_unix: null
 
         });
+
+        this.add_friend.full_name = '';
+
+
 
       },
 
