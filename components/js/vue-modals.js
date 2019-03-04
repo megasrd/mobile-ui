@@ -2,7 +2,9 @@ Vue.component('friend-list-modal', {
     data: function() {
 
         return {
+            app: app,
             friends: app.friend_list,
+            setCurrentProfile: app.setCurrentProfile,
             addFriend: app.addFriend,
             add_temp: app.add_friend,
             add_friends: false
@@ -25,16 +27,17 @@ Vue.component('friend-list-modal', {
                     <span v-for="friend in friends"> 
                         <div class="inline-block mx-5 mt-12 mb-12 px-5">
                             <div class="text-center">
-                            <img class="friends-image rounded-full shadow-lg bg-black" v-bind:src="friend.pr_pic">
-                            <h3 class="block text-black mt-3 text-3xl"> {{ friend.full_name }} </h3>
+                              <img @click="app.friendInfo_showModal = true; setCurrentProfile(friend)" class="friends-image-thumb rounded-full shadow-lg bg-black" v-bind:src="friend.pr_pic">
+                              <h3 class="block text-black mt-3 text-3xl"> {{ friend.full_name }} </h3>
                             </div>
                         </div>
                     </span>         
                 </span>
                 <span v-else>
                     <h4 class="mb-8" slot="header">Add Friend</h4>
-                    Name: <input v-model="add_temp.full_name" class="custom_input py-5 px-5" type="text">
-                    <button v-on:click="addFriend(add_temp.full_name); return add_friends = false" class="mt-10 py-8 px-12 text-white bg-teal"> Add + </button>                
+                    <div> Name: <input v-model="add_temp.full_name" class="custom_input py-5 px-5" type="text"> </div>
+                    <div> Location: <input v-model="add_temp.location" class="custom_input py-5 px-5" type="text"> </div>
+                    <button v-on:click="addFriend(add_temp.full_name, add_temp.location); return add_friends = false" class="mt-10 py-8 px-12 text-white bg-teal"> Add + </button>                
                 </span>
             </slot>
           </div>
@@ -56,13 +59,6 @@ Vue.component('friend-list-modal', {
 
 Vue.component('friend-info-modal', {
     data: function() {
-
-        // return {
-        //     friends: app.friend_list,
-        //     addFriend: app.addFriend,
-        //     add_temp: app.add_friend,
-        //     add_friends: false
-        // }
 
       return {
           current_profile: app.current_profile

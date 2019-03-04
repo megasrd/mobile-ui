@@ -101,7 +101,7 @@ const app = new Vue({
 
       },
 
-      addFriend : function(friend_name) {
+      addFriend : function(friend_name,f_location) {
 
         let length = Object.keys(this.friend_list).length;
 
@@ -110,6 +110,8 @@ const app = new Vue({
           pr_pic: './images/new_user.png',
 
           full_name: friend_name,
+
+          location: f_location,
 
           active: false,
 

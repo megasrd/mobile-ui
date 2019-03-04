@@ -86,9 +86,9 @@
         <span class="overflow-y-scroll flex"> 
           <span v-for="friend in friend_list"> 
             <div v-if="friend.active" class="inline-block mx-5 mt-12 mb-12 px-5">
-              <div class="text-center">
-                <img @click="friendInfo_showModal = true; setCurrentProfile(friend)" class="friends-image-thumb rounded-full border-active shadow-lg" v-bind:src="friend.pr_pic">
-                <h3 class="block text-black mt-3 text-3xl"> {{ friend.full_name }} </h3>
+                <div class="text-center">
+                  <img @click="friendInfo_showModal = true; setCurrentProfile(friend)" class="friends-image-thumb rounded-full border-active shadow-lg" v-bind:src="friend.pr_pic">
+                  <h3 class="block text-black mt-3 text-3xl"> {{ friend.full_name }} </h3>
                 </div>
             </div>
             <div v-else class="inline-block mx-5 mt-12 mb-12 px-5"> 
