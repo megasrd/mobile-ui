@@ -1,4 +1,4 @@
-Vue.component('modal', {
+Vue.component('friend-list-modal', {
     data: function() {
 
         return {
@@ -8,7 +8,7 @@ Vue.component('modal', {
             add_friends: false
         }
     },
-    template: `  <transition name="modal">
+    template: `  <transition name="friend-list-modal">
     <div class="modal-mask">
       <div class="modal-wrapper">
         <div class="modal-container p-8">
@@ -46,6 +46,65 @@ Vue.component('modal', {
                 Close
               </button>
               <button v-if="!add_friends" v-on:click="add_friends = true" class="py-8 px-12 text-white bg-teal"> Add Friends </button>   
+            </slot>
+          </div>
+        </div>
+      </div>
+    </div>
+  </transition>`
+  })
+
+Vue.component('friend-info-modal', {
+    data: function() {
+
+        // return {
+        //     friends: app.friend_list,
+        //     addFriend: app.addFriend,
+        //     add_temp: app.add_friend,
+        //     add_friends: false
+        // }
+
+      return {
+          current_profile: app.current_profile
+      }
+    },
+    template: `  <transition name="friend-info-modal">
+    <div class="modal-mask">
+      <div class="modal-wrapper">
+        <div class="modal-container p-8">
+
+          <div class="modal-header">
+            <slot name="header">
+              default header
+            </slot>
+          </div>
+
+          <div class="modal-body source-sans"> 
+            <slot name="body">
+            <div class="text-center">
+               <img class="friends-image-full rounded-full border-active shadow-lg" v-bind:src="current_profile.pr_pic"> 
+               <h2> {{ current_profile.full_name }} </h2>
+               <h5 class="text-grey-dark"> {{ current_profile.location }} </h5>
+               <h5 v-if="current_profile.active" class="text-grey-dark"> Online </h5>
+            </div>
+
+            <div>
+              <h3 class="my-6"> About {{ current_profile.full_name }} : </h3>
+              <div class="my-6">
+              {{ current_profile.about }}
+              </div>
+            </div>
+
+            </slot>
+          </div>
+
+          <div class="modal-footer">
+            <slot name="footer">
+
+              <button class="modal-default-button py-8 px-12 text-white bg-teal" @click="$emit('close')">
+                Close
+              </button>
+        
             </slot>
           </div>
         </div>

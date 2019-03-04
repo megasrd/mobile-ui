@@ -1,8 +1,4 @@
-//LightGallery
-
-
 //Vue
-
 const app = new Vue({
     el: '#app',
     data: {
@@ -18,29 +14,38 @@ const app = new Vue({
         },
         add_friends: false,
         friends_showModal: false,
+        friendInfo_showModal: false,
         settings: false,
         friend_list: {
           0 : {
             pr_pic: './images/wade.jpeg',
             full_name: 'Wade April',
+            location: 'Cape Town, South Africa',
+            about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In consequat massa a leo scelerisque, id tempor ante porta. Mauris vestibulum et diam ut interdum.',
             active: true,
             last_seen_unix: 1551269100
           },
           1 : {
             pr_pic: './images/robin.jpeg',
             full_name: 'Robin April',
+            location: 'Johannesburg, South Africa',
+            about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In consequat massa a leo scelerisque, id tempor ante porta. Mauris vestibulum et diam ut interdum.',
             active: true,
             last_seen_unix: 1551269100
           },
           2 : {
             pr_pic: './images/stefan.jpeg',
             full_name: 'Stefan Du Plessis',
+            location: 'Mossel Bay, South Africa',
+            about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In consequat massa a leo scelerisque, id tempor ante porta. Mauris vestibulum et diam ut interdum.',
             active: false,
             last_seen_unix: 1551269100
           },
           3 : {
             pr_pic: './images/ruth.jpeg',
             full_name: 'Ruth Duthie',
+            location: 'Seoul, South Korea',
+            about: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In consequat massa a leo scelerisque, id tempor ante porta. Mauris vestibulum et diam ut interdum.',
             active: false,
             last_seen_unix: 1551269100
           }
@@ -50,6 +55,9 @@ const app = new Vue({
           full_name: '',
           active: false,
           last_seen_unix: null
+        },
+        current_profile: {
+
         },
         fav_places : {
           0 : {
@@ -86,6 +94,12 @@ const app = new Vue({
     },
 
     methods: {
+
+      setCurrentProfile: function(object){
+
+        this.current_profile = object;
+
+      },
 
       addFriend : function(friend_name) {
 
@@ -126,8 +140,6 @@ const app = new Vue({
         });
 
       },
-
-
 
     },
     computed: {
@@ -180,9 +192,3 @@ const app = new Vue({
       }
   }
 });
-
-if (app.lightGallery) {
-  $('.shots-gallery').lightGallery({
-    pager: true
-  });
-}

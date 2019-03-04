@@ -10,6 +10,7 @@
 
 
 <body>
+
   <div class="text-4xl" id="app">
   
     <header class="absolute pin-t pin-l">
@@ -29,6 +30,7 @@
             </textarea>
         </span>
     </div>
+
     <div class="city-image hc-1 w-screen p-20 block source-sans">
         <div class="w-1/2 text-center block my-24 mx-auto">
             <img class="id-image rounded-full mb-10 mt-6 shadow-lg bg-black" v-bind:src="profile_pic">
@@ -66,10 +68,9 @@
     <div class="mt-32 source-sans text-4xl">
       <span class="px-5 mx-5 block clearfix"> 
         <h4 class="float-left uppercase"> About </h4>
-        <a class="float-right text-blue-light"> See All > </a>
       </span>
 
-      <div class= "mx-5 mt-16 px-5">
+    <div class= "mx-5 mt-16 px-5">
           <p>{{ about }}</p>
       </div>
     </div>
@@ -85,58 +86,67 @@
         <span class="overflow-y-scroll flex"> 
           <span v-for="friend in friend_list"> 
             <div v-if="friend.active" class="inline-block mx-5 mt-12 mb-12 px-5">
-                <div class="text-center">
-                  <img class="friends-image rounded-full border-active shadow-lg" v-bind:src="friend.pr_pic">
-                  <h3 class="block text-black mt-3 text-3xl"> {{ friend.full_name }} </h3>
+              <div class="text-center">
+                <img @click="friendInfo_showModal = true; setCurrentProfile(friend)" class="friends-image-thumb rounded-full border-active shadow-lg" v-bind:src="friend.pr_pic">
+                <h3 class="block text-black mt-3 text-3xl"> {{ friend.full_name }} </h3>
                 </div>
             </div>
             <div v-else class="inline-block mx-5 mt-12 mb-12 px-5"> 
                 <div class="text-center">
-                    <img class="friends-image rounded-full shadow-lg" v-bind:src="friend.pr_pic">
-                    <h3 class="block text-black mt-3 text-3xl"> {{ friend.full_name }} </h3>
-                  </div>
+                  <img @click="friendInfo_showModal = true; setCurrentProfile(friend)" class="friends-image-thumb rounded-full shadow-lg" v-bind:src="friend.pr_pic">
+                  <h3 class="block text-black mt-3 text-3xl"> {{ friend.full_name }} </h3>
+                </div>
             </div>
           </span>
-      </span> 
-  
-      </div>
+        </span> 
+    </div>
       
       <div class="mt-16 mb-10 source-sans text-4xl">
         <span class="mx-5 px-5 block clearfix">
-            <h4 class="float-left mr-5 uppercase"> Favourite Places </h4> 
-            <button id="show-modal" @click="place_showModal = true" class="float-right text-blue-light"> Add More + </button>
+          <h4 class="float-left mr-5 uppercase"> Favourite Places </h4> 
+          <button id="show-modal" @click="place_showModal = true" class="float-right text-blue-light"> Add More + </button>
         </span>
       </div>
 
       <span class="overflow-y-scroll flex"> 
         <span v-for="place in fav_places"> 
           <div class="inline-block mx-5 mt-12 mb-12 px-5">
-              <div class="text-center">
-                <img class="friends-image rounded-full shadow-lg bg-black" v-bind:src="place.image">
-                <h3 class="block text-black mt-3 text-3xl"> {{ place.name }} </h3>
-                <h3 class="block text-grey-darker mt-3 text-2xl"> {{ place.country }} </h3>
-              </div>
+            <div class="text-center">
+              <img class="friends-image-thumb rounded-full shadow-lg bg-black" v-bind:src="place.image">
+              <h3 class="block text-black mt-3 text-3xl"> {{ place.name }} </h3>
+              <h3 class="block text-grey-darker mt-3 text-2xl"> {{ place.country }} </h3>
+            </div>
           </div>
         </span>
        </span> 
 
       <div class="mt-16 mb-10 source-sans text-4xl">
           <span class="mx-5 px-5 block clearfix">
-              <h4 class="float-left mr-5 uppercase"> Shots </h4> 
-              <h4 class="float-left text-grey"> 3 taken this week </h4>
+            <h4 class="float-left mr-5 uppercase"> Shots </h4> 
+            <h4 class="float-left text-grey"> 3 taken this week </h4>
           </span>
       </div>
 
         <!-- use the modal component, pass in the prop -->
-        <modal v-if="friends_showModal" @close="friends_showModal = false">
+        <friend-list-modal v-if="friends_showModal" @close="friends_showModal = false">
           <!--
             you can use custom content here to overwrite
             default content
           -->
           <h3 slot="header">Friends List</h3>
-        </modal>
+        </friend-list-modal>
+
+        <friend-info-modal v-if="friendInfo_showModal" @close="friendInfo_showModal = false">
+            <!--
+              you can use custom content here to overwrite
+              default content
+            -->
+            <h3 slot="header">Friends Info</h3>
+          </friend-info-modal>
+        
   </div>
 </body>
+
 <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -144,4 +154,5 @@
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.7/dist/vue.js"></script>
 <script src="main.js"></script>
 <script src="./components/js/vue-modals.js"></script>
+<script src="./components/js/masonry.pkgd.min.js"></script>
 </html>
