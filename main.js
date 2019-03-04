@@ -1,10 +1,5 @@
 //LightGallery
 
-$(document).ready(function() {
-    $('.shots-gallery').lightGallery({
-      pager: true
-    });
-  });
 
 //Vue
 
@@ -186,3 +181,8 @@ const app = new Vue({
   }
 });
 
+if (app.lightGallery) {
+  $('.shots-gallery').lightGallery({
+    pager: true
+  });
+}

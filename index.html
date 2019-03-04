@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title> Mobile UI Practice </title>
-  <link type="text/css" rel="stylesheet" href="./components/css/lightgallery.css" />   
   <link rel="stylesheet" href="./tailwind-main.css">
   <link rel="stylesheet" href="./tail-style.css">
   <link rel="stylesheet" href="./main.css">
@@ -127,13 +126,6 @@
           </span>
       </div>
 
-      <div class="shots-gallery px-10 py-10 mb-10 flex flex-wrap text-center">
-          <a v-for="shot in photos" class="inline-block m-3 w-2/5" v-bind:src="shot.image">
-            <img v-bind:src="shot.image"/>
-          </a>  
-      </div>
-
-        
         <!-- use the modal component, pass in the prop -->
         <modal v-if="friends_showModal" @close="friends_showModal = false">
           <!--
@@ -149,7 +141,6 @@
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.7/dist/vue.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.12/js/lightgallery.min.js"></script>
 <script src="main.js"></script>
 <script src="./components/js/vue-modals.js"></script>
 </html>
