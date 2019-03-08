@@ -65,6 +65,14 @@
   padding: 4px;
 }
 
+.gallery-thumb {
+  background-size: cover;
+  background-position: center;
+  width: 93%;
+  height: 250px;
+  display: inline-block;
+}
+
 .custom_input {
   border-bottom: 1px solid black;
   width: 66%;
