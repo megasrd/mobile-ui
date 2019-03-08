@@ -1,3 +1,5 @@
+//Mixins
+
 @mixin images($file) {
     background : {
         image: url(./images/#{$file}.jpg);

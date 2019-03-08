@@ -2,9 +2,8 @@
 @import "helpers/variables";
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
 @import "helpers/modal";
+@import "helpers/grid-layout";
 
-.grid-item { width: 200px; }
-.grid-item--width2 { width: 400px; }
 
 .custom_input {
     border-bottom: 1px solid black;

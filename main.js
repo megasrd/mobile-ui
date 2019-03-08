@@ -1,3 +1,8 @@
+$(document.body).ready(function() {
+        $("#lightgallery").lightGallery();
+  });
+
+
 //Vue
 const app = new Vue({
     el: '#app',
@@ -9,7 +14,7 @@ const app = new Vue({
         stats: {
             alerts: 3,
             places: 0,
-            shots: 10,
+            shots: 0,
             friends: 0
         },
         add_friends: false,
@@ -80,22 +85,14 @@ const app = new Vue({
           }
         },
         photos: {
-          0 : {
-            image: './images/shots/shot-1.jpeg'
-          },
-          1 : {
-            image: './images/shots/shot-2.jpeg'
-          },
-          2 : {
-            image: './images/shots/shot-3.jpeg'
-          }
+
         }
 
     },
 
     methods: {
 
-      setCurrentProfile: function(object){
+      setCurrentProfile : function(object) {
 
         this.current_profile = object;
 
@@ -121,8 +118,6 @@ const app = new Vue({
 
         this.add_friend.full_name = '';
 
-
-
       },
 
       addPlace : function(p_name, p_country, p_image) {
@@ -144,7 +139,26 @@ const app = new Vue({
       },
 
     },
+    
     computed: {
+
+      addShots: { 
+        
+        get: function() {
+
+          let photos_obj = {};
+
+          for (i=0; i < 7; i++) {
+              photos_obj[i] = {
+                image: './images/shots/shot-' + i + '.jpeg'
+              }
+          }
+
+          this.photos = photos_obj;
+
+        },
+
+      },
 
       friendsCount: {
 
@@ -152,7 +166,7 @@ const app = new Vue({
 
           let friends_count = Object.keys(this.friend_list).length;
 
-          this.friends = friends_count;
+          this.stats.friends = friends_count;
 
           return friends_count;
 
@@ -166,7 +180,7 @@ const app = new Vue({
 
           let places_count = Object.keys(this.fav_places).length;
 
-          this.places = places_count;
+          this.stats.places = places_count;
 
           return places_count;
 
@@ -174,8 +188,23 @@ const app = new Vue({
 
       },
 
+      shotsCount : {
 
-      activeCount: {
+        get: function() {
+
+          let shots_count = Object.keys(this.photos).length;
+
+          this.stats.shots = shots_count;
+
+          this.stats.shots = shots_count;
+
+          return shots_count;
+
+        }
+
+      },
+
+      activeFriendsCount: {
 
         get: function() {
 
