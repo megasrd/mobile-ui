@@ -149,13 +149,13 @@
             <h3 slot="header">Friends Info</h3>
          </friend-info-modal>
 
-         <places-info-modal v-if="place_showModal" @close="place_showModal = false">
+         <places-list-modal v-if="place_showModal" @close="place_showModal = false">
             <!--
               you can use custom content here to overwrite
               default content
             -->
-            <h3 slot="header">Places Info</h3>
-         </places-info-modal>
+            <h3 slot="header">Your Favourite Places</h3>
+         </places-list-modal>
 
   </div>
 </body>

@@ -109,14 +109,14 @@ Vue.component('friend-info-modal', {
   </transition>`
   })
 
-  Vue.component('places-info-modal', {
+  Vue.component('places-list-modal', {
     data: function() {
 
       return {
-          current_profile: app.current_profile
+          places : app.fav_places
       }
     },
-    template: `  <transition name="places-info-modal">
+    template: `  <transition name="places-list-modal">
     <div class="modal-mask">
       <div class="modal-wrapper">
         <div class="modal-container p-8">
@@ -129,7 +129,15 @@ Vue.component('friend-info-modal', {
 
           <div class="modal-body source-sans"> 
             <slot name="body">
-
+              <span v-for="place in places"> 
+                <div class="inline-block mx-5 mt-12 mb-12 px-5">
+                    <div class="text-center">
+                      <img class="friends-image-thumb rounded-full shadow-lg bg-black" v-bind:src="place.image">
+                      <h3 class="block text-black mt-3 text-3xl"> {{ place.name }} </h3>
+                      <h4 class="block text-black mt-3 text-2xl"> {{ place.country }} </h4>
+                    </div>
+                </div>
+              </span>    
             </slot>
           </div>
 
@@ -139,7 +147,10 @@ Vue.component('friend-info-modal', {
               <button class="modal-default-button py-8 px-12 text-white bg-teal" @click="$emit('close')">
                 Close
               </button>
-        
+
+              <button class="modal-default-button mx-5 py-8 px-12 text-white bg-teal">
+                Add More
+              </button>
             </slot>
           </div>
         </div>
