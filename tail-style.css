@@ -7,6 +7,5 @@
 
 /* Here we can add our own utilities or custom CSS */
 .hc-1 {
-  height: 1200px;
+  height: fit-content;
 }
-

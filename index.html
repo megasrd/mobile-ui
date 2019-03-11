@@ -10,7 +10,7 @@
 </head>
 <body>
   <div class="text-4xl" id="app">
-  
+
     <header class="absolute pin-t pin-l">
         <img v-on:click="settings = true" class="w-16 m-6" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgNDgwLjMgNDgwLjMiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQ4MC4zIDQ4MC4zOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiPjxnPjxnPgoJPGc+CgkJPHBhdGggZD0iTTI1NC4xNSwyMzQuMVYxMy41YzAtNy41LTYtMTMuNS0xMy41LTEzLjVzLTEzLjUsNi0xMy41LDEzLjV2MjIwLjZjLTMxLjMsNi4zLTU1LDM0LTU1LDY3LjJzMjMuNyw2MC45LDU1LDY3LjJ2OTguMiAgICBjMCw3LjUsNiwxMy41LDEzLjUsMTMuNXMxMy41LTYsMTMuNS0xMy41di05OC4yYzMxLjMtNi4zLDU1LTM0LDU1LTY3LjJDMzA5LjE1LDI2OC4yLDI4NS41NSwyNDAuNCwyNTQuMTUsMjM0LjF6IE0yNDAuNjUsMzQyLjggICAgYy0yMi45LDAtNDEuNS0xOC42LTQxLjUtNDEuNXMxOC42LTQxLjUsNDEuNS00MS41czQxLjUsMTguNiw0MS41LDQxLjVTMjYzLjU1LDM0Mi44LDI0MC42NSwzNDIuOHoiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSJhY3RpdmUtcGF0aCIgc3R5bGU9ImZpbGw6I0ZGRkZGRiIgZGF0YS1vbGRfY29sb3I9IiNGOEY1RjUiPjwvcGF0aD4KCQk8cGF0aCBkPSJNODguODUsMTIwLjlWMTMuNWMwLTcuNS02LTEzLjUtMTMuNS0xMy41cy0xMy41LDYtMTMuNSwxMy41djEwNy40Yy0zMS4zLDYuMy01NSwzNC01NSw2Ny4yczIzLjcsNjAuOSw1NSw2Ny4ydjIxMS40ICAgIGMwLDcuNSw2LDEzLjUsMTMuNSwxMy41czEzLjUtNiwxMy41LTEzLjVWMjU1LjJjMzEuMy02LjMsNTUtMzQsNTUtNjcuMlMxMjAuMTUsMTI3LjIsODguODUsMTIwLjl6IE03NS4zNSwyMjkuNiAgICBjLTIyLjksMC00MS41LTE4LjYtNDEuNS00MS41czE4LjYtNDEuNSw0MS41LTQxLjVzNDEuNSwxOC42LDQxLjUsNDEuNVM5OC4xNSwyMjkuNiw3NS4zNSwyMjkuNnoiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIGNsYXNzPSJhY3RpdmUtcGF0aCIgc3R5bGU9ImZpbGw6I0ZGRkZGRiIgZGF0YS1vbGRfY29sb3I9IiNGOEY1RjUiPjwvcGF0aD4KCQk8cGF0aCBkPSJNNDE4LjQ1LDEyMC45VjEzLjVjMC03LjUtNi0xMy41LTEzLjUtMTMuNXMtMTMuNSw2LTEzLjUsMTMuNXYxMDcuNGMtMzEuMyw2LjMtNTUsMzQtNTUsNjcuMnMyMy43LDYwLjksNTUsNjcuMnYyMTEuNSAgICBjMCw3LjUsNiwxMy41LDEzLjUsMTMuNXMxMy41LTYsMTMuNS0xMy41VjI1NS4yYzMxLjMtNi4zLDU1LTM0LDU1LTY3LjJTNDQ5Ljg1LDEyNy4yLDQxOC40NSwxMjAuOXogTTQwNC45NSwyMjkuNiAgICBjLTIyLjksMC00MS41LTE4LjYtNDEuNS00MS41czE4LjYtNDEuNSw0MS41LTQxLjVzNDEuNSwxOC42LDQxLjUsNDEuNVM0MjcuODUsMjI5LjYsNDA0Ljk1LDIyOS42eiIgZGF0YS1vcmlnaW5hbD0iIzAwMDAwMCIgY2xhc3M9ImFjdGl2ZS1wYXRoIiBzdHlsZT0iZmlsbDojRkZGRkZGIiBkYXRhLW9sZF9jb2xvcj0iI0Y4RjVGNSI+PC9wYXRoPgoJPC9nPgo8L2c+PC9nPiA8L3N2Zz4=" />
     </header>
@@ -24,12 +24,12 @@
             <p class="p-6 font-bold"> Location: </p>
             <input class="settings-input p-6 mb-8" type="text" placeholder="Location" v-model:value="location">
             <p class="p-6 font-bold"> About Yourself: </p>
-            <textarea class="settings-input h-24 p-6 mb-8" placeholder="About Yourself" v-model:value="about">
+            <textarea class="settings-input h-64 p-6 mb-8" placeholder="About Yourself" v-model:value="about">
             </textarea>
         </span>
     </div>
 
-    <div class="city-image hc-1 w-screen p-20 block source-sans">
+    <div class="city-image w-screen h-auto p-20 block source-sans">
         <div class="w-1/2 text-center block my-24 mx-auto">
             <img class="id-image rounded-full mb-10 mt-6 shadow-lg bg-black" v-bind:src="profile_pic">
             <span class="text-white">
