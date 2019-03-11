@@ -1,0 +1,13 @@
+{
+    "name": "dotsure/wp",
+    "description": "Wordpress site",
+    "require": {
+        "vlucas/phpdotenv": "^2.2"
+    },
+    "authors": [
+        {
+            "name": "Jason",
+            "email": "jay@dotsure.co.za"
+        }
+    ]
+  }

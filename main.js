@@ -19,6 +19,7 @@ const app = new Vue({
         },
         add_friends: false,
         place_showModal : false,
+        add_places: false,
         friends_showModal: false,
         friendInfo_showModal: false,
         settings: false,
@@ -61,6 +62,12 @@ const app = new Vue({
           full_name: '',
           active: false,
           last_seen_unix: null
+        },
+        add_place : {
+          name: '',
+          country: '',
+          image: '',
+          freq: false
         },
         current_profile: {
 
@@ -121,7 +128,7 @@ const app = new Vue({
 
       },
 
-      addPlace : function(p_name, p_country, p_image) {
+      addPlace : function(p_name, p_country) {
 
         let length = Object.keys(this.fav_places).length;
 
@@ -131,7 +138,7 @@ const app = new Vue({
 
           country: p_country,
 
-          image: p_image,
+          image: './images/places/cape-town.jpeg',
 
           freq: false
 
@@ -149,7 +156,7 @@ const app = new Vue({
 
           let photos_obj = {};
 
-          for (i=0; i < 7; i++) {
+          for (i=0; i < 6; i++) {
               photos_obj[i] = {
                 image: './images/shots/shot-' + i + '.jpeg'
               }

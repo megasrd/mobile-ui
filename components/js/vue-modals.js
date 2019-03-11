@@ -113,7 +113,10 @@ Vue.component('friend-info-modal', {
     data: function() {
 
       return {
-          places : app.fav_places
+          places : app.fav_places,
+          addPlace : app.addPlace,
+          add_places : app.add_places,
+          add_temp : app.add_place
       }
     },
     template: `  <transition name="places-list-modal">
@@ -129,6 +132,7 @@ Vue.component('friend-info-modal', {
 
           <div class="modal-body source-sans"> 
             <slot name="body">
+            <span class="block" v-if="!add_places">
               <span v-for="place in places"> 
                 <div class="inline-block mx-5 mt-12 mb-12 px-5">
                     <div class="text-center">
@@ -137,6 +141,13 @@ Vue.component('friend-info-modal', {
                       <h4 class="block text-black mt-3 text-2xl"> {{ place.country }} </h4>
                     </div>
                 </div>
+                </span>
+              </span>
+              <span v-else>
+                <h4 class="mb-8" slot="header">Add A New Favourite Place</h4>
+                <div> City: <input v-model="add_temp.name" class="custom_input py-5 px-5" type="text"> </div>
+                <div> Country: <input v-model="add_temp.country" class="custom_input py-5 px-5" type="text"> </div>
+                <button v-on:click="addPlace(add_temp.name, add_temp.country); return add_places = false" class="mt-10 py-8 px-12 text-white bg-teal"> Add + </button>                
               </span>    
             </slot>
           </div>
@@ -147,10 +158,7 @@ Vue.component('friend-info-modal', {
               <button class="modal-default-button py-8 px-12 text-white bg-teal" @click="$emit('close')">
                 Close
               </button>
-
-              <button class="modal-default-button mx-5 py-8 px-12 text-white bg-teal">
-                Add More
-              </button>
+              <button v-if="!add_places" v-on:click="add_places = true" class="py-8 px-12 text-white bg-teal"> Add Places </button>  
             </slot>
           </div>
         </div>
