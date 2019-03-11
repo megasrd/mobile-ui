@@ -108,3 +108,42 @@ Vue.component('friend-info-modal', {
     </div>
   </transition>`
   })
+
+  Vue.component('places-info-modal', {
+    data: function() {
+
+      return {
+          current_profile: app.current_profile
+      }
+    },
+    template: `  <transition name="places-info-modal">
+    <div class="modal-mask">
+      <div class="modal-wrapper">
+        <div class="modal-container p-8">
+
+          <div class="modal-header">
+            <slot name="header">
+              default header
+            </slot>
+          </div>
+
+          <div class="modal-body source-sans"> 
+            <slot name="body">
+
+            </slot>
+          </div>
+
+          <div class="modal-footer">
+            <slot name="footer">
+
+              <button class="modal-default-button py-8 px-12 text-white bg-teal" @click="$emit('close')">
+                Close
+              </button>
+        
+            </slot>
+          </div>
+        </div>
+      </div>
+    </div>
+  </transition>`
+  })

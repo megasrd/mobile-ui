@@ -102,7 +102,7 @@
       <div class="mt-16 mb-10 source-sans text-4xl">
         <span class="mx-5 px-5 block clearfix">
           <h4 class="float-left mr-5 uppercase"> Favourite Places </h4> 
-          <button id="show-modal" @click="place_showModal = true" class="float-right text-blue-light"> Add More + </button>
+          <button id="place_showModal" @click="place_showModal = true" class="float-right text-blue-light"> Add More + </button>
         </span>
       </div>
 
@@ -148,6 +148,14 @@
             -->
             <h3 slot="header">Friends Info</h3>
          </friend-info-modal>
+
+         <places-info-modal v-if="place_showModal" @close="place_showModal = false">
+            <!--
+              you can use custom content here to overwrite
+              default content
+            -->
+            <h3 slot="header">Places Info</h3>
+         </places-info-modal>
 
   </div>
 </body>

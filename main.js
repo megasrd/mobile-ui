@@ -18,6 +18,7 @@ const app = new Vue({
             friends: 0
         },
         add_friends: false,
+        place_showModal : false,
         friends_showModal: false,
         friendInfo_showModal: false,
         settings: false,
