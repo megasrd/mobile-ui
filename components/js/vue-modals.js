@@ -10,7 +10,7 @@ Vue.component('friend-list-modal', {
             add_friends: false
         }
     },
-    template: `  <transition name="friend-list-modal">
+    template: `  <transition name="modal">
     <div class="modal-mask">
       <div class="modal-wrapper">
         <div class="modal-container p-8">
@@ -64,7 +64,7 @@ Vue.component('friend-info-modal', {
           current_profile: app.current_profile
       }
     },
-    template: `  <transition name="friend-info-modal">
+    template: `  <transition name="modal">
     <div class="modal-mask">
       <div class="modal-wrapper">
         <div class="modal-container p-8">
@@ -119,7 +119,7 @@ Vue.component('friend-info-modal', {
           add_temp : app.add_place
       }
     },
-    template: `  <transition name="places-list-modal">
+    template: `  <transition name="modal">
     <div class="modal-mask">
       <div class="modal-wrapper">
         <div class="modal-container p-8">
